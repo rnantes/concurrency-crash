@@ -2,10 +2,13 @@ import XCTest
 @testable import ConcurrencyCrash
 
 final class ConcurrencyCrashTests: XCTestCase {
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-        XCTAssertEqual(ConcurrencyCrash().text, "Hello, World!")
+
+    func testSimpleConcurrency() async throws {
+        let res = await aConcurrentFunc()
+        XCTAssertEqual(res, "hi")
+    }
+
+    func aConcurrentFunc() async -> String {
+        return "hi"
     }
 }
