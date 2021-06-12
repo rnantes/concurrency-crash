@@ -3,6 +3,7 @@ import XCTest
 
 final class ConcurrencyCrashTests: XCTestCase {
 
+    // this crashes
     func testSimpleConcurrency() async throws {
         let res = await aConcurrentFunc()
         XCTAssertEqual(res, "hi")
